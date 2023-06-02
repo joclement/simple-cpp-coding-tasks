@@ -1,0 +1,6 @@
+[tool_requires]
+cmake/3.26.3
+
+[generators]
+CMakeDeps
+CMakeToolchain

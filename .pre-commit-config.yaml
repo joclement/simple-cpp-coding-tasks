@@ -1,0 +1,33 @@
+repos:
+  - repo: meta
+    hooks:
+      - id: check-hooks-apply
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: f71fa2c1f9cf5cb705f73dffe4b21f7c61470ba9  # frozen: v4.4.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-added-large-files
+      - id: check-shebang-scripts-are-executable
+      - id: check-executables-have-shebangs
+      - id: detect-private-key
+  - repo: https://github.com/shellcheck-py/shellcheck-py
+    rev: 375289a39f5708101b1f916eb729e8d6da96993f  # frozen: v0.9.0.5
+    hooks:
+      - id: shellcheck
+        args: ["--norc"]
+  - repo: https://github.com/commitizen-tools/commitizen
+    rev: 4060cc22d47761e2b5015b5f2d2484c3d65f92a5  # frozen: 3.2.2
+    hooks:
+      - id: commitizen
+      - id: commitizen-branch
+        stages: [push]
+  - repo: https://github.com/pocc/pre-commit-hooks
+    rev: 8387cd298d01468479e7e52429ca8c95ed9546ef  # frozen: v1.3.5
+    hooks:
+      - id: clang-tidy
+        args: ["-p=./build", "--quiet", "-extra-arg=-std=c++17"]
+  - repo: https://github.com/pre-commit/mirrors-clang-format
+    rev: 4fa6f82d0118d7c941b352fd2ee1ba94976d3368  # frozen: v16.0.4
+    hooks:
+      - id: clang-format

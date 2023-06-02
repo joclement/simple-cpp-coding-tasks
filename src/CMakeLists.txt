@@ -1,0 +1,2 @@
+add_executable(parseCSVItems ParseCSVItems.cpp)
+target_link_libraries(parseCSVItems)
